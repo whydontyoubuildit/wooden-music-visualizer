@@ -8,6 +8,8 @@ import os
 import shutil
 import multiprocessing
 from multiprocessing import Pool
+import subprocess
+import sys
 import argparse
 from pathlib import Path
 
@@ -210,7 +212,7 @@ def generate_frames(spectrogram_matrix, image_folder, tmp_folder, keep_frames=KE
 	p.starmap(_generate_frames, arguments)
 	p.terminate()
 	# To keep the frames as single images we copy the content of the temporary folder to a /frame/ folder where the script is.
-	if keep_frames:
+	if KEEP_FRAMES:
 		if os.path.exists("./frames/"):
 			shutil.rmtree("./frames/")
 		shutil.copytree(tmp_folder, "./frames/")
@@ -223,8 +225,8 @@ def generate_video():
 	n_char = str(len(f"{n_frames}")).zfill(2)
 	if os.path.isfile("./temp_output.mp4"):
 		os.remove("./temp_output.mp4")
-	os.system(f"ffmpeg -framerate {FPS} -i {tmp_dir}/%{n_char}d.jpg ./temp_output.mp4")
-	os.system(f"ffmpeg -i ./temp_output.mp4 -i {audio_file_path} -c:v copy -c:a copy output.mp4")
+	subprocess.run(['ffmpeg', '-framerate', f'{FPS}', '-i', f'{tmp_dir}/%{n_char}d.jpg', './temp_output.mp4'], stderr=sys.stderr, stdout=sys.stdout)
+	subprocess.run(['ffmpeg','-i', './temp_output.mp4', '-i', f'{audio_file_path}', '-c:v', 'copy', 'output.mp4'], stderr=sys.stderr, stdout=sys.stdout)
 	os.remove("./temp_output.mp4")
 
 
