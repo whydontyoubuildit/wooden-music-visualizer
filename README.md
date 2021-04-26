@@ -1,6 +1,9 @@
 # wooden-music-visualizer
 Some simple python code to visualize your music as you've seen in my youtube video.
 
+
+<img src="http://i3.ytimg.com/vi/XRDU_5MJZv0/maxresdefault.jpg" width="30%" height="30%">
+
 ## Documentation
 With this script you can turn any audio file into a video containing a spectrografic visualization of the sound displayed with wooden blocks.
 The inner working is the following:
@@ -46,7 +49,6 @@ python3 visualizer.py --help
 It's also possible to modify the same parameters (and some other) directly from the script file.
 
 ## Disclaimer
-------------
 
 I'm not a skilled programmer by any means. I'm self taught and this was just a little project to celebrate my first 100 subcribers on YouTube.
 I cannot guarantee that any of the software is going to work on your machine. Also run it at your own risk, I'm not resposible for any possibile damage it can make.
@@ -58,7 +60,6 @@ If you are going to use it it would be a nice touch to credit me as the original
 Being a non coder I'm sure that my code is hacky and ugly, so if you want to suggest improvements or patch problems you're very welcome to contribute.
 
 Discussion
-----------
 
-Please direct non-development questions and discussion topics to the comment section of [the original video](link).
+Please direct non-development questions and discussion topics to the comment section of [the original video](https://www.youtube.com/watch?v=XRDU_5MJZv0).
 You can also message me privately by mail or on instagram @whydontyoubuildit
